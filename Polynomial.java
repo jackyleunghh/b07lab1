@@ -1,25 +1,23 @@
 public class Polynomial {
-	double [] coefficient;
+	double[] coefficient;
 	
 	public Polynomial() {
-		double[] coef = new double[1];
-		coef[0] = 0;
-		coefficient = coef;
+		coefficient = new double[]{0};
 	}
-	public Polynomial(double [] c) {
+	public Polynomial(double[] c) {
 		coefficient = c;
 	}
 	
 	Polynomial add(Polynomial poly) {
-        	int maxLength = Math.max(coefficient.length, poly.coefficient.length);
-        	double[] sum = new double[maxLength];
-        	for (int i = 0; i < maxLength; i++) {
-            		double coefA = (i < coefficient.length) ? coefficient[i] : 0;
-            		double coefB = (i < poly.coefficient.length) ? poly.coefficient[i] : 0;
-            		sum[i] = coefA + coefB;
-        	}
+		int maxLength = Math.max(coefficient.length, poly.coefficient.length);
+		double[] sum = new double[maxLength];
+		for (int i = 0; i < maxLength; i++) {
+			double coefA = (i < coefficient.length) ? coefficient[i] : 0;
+			double coefB = (i < poly.coefficient.length) ? poly.coefficient[i] : 0;
+			sum[i] = coefA + coefB;
+        }
 		Polynomial sumPoly = new Polynomial(sum);
-        	return sumPoly;
+        return sumPoly;
 	}
 
 	double evaluate(double x) {
@@ -31,6 +29,6 @@ public class Polynomial {
 	}
 
 	boolean hasRoot(double x) {
-		return (evaluate(x) == 0);
+		return evaluate(x) == 0;
 	}
 }
