@@ -10,8 +10,8 @@ public class Polynomial {
 	int[] exponent;
 	
 	public Polynomial() {
-		coefficient = new double[]{0};
-		exponent = new int[]{0};
+		coefficient = new double[0];
+		exponent = new int[0];
 	}
 
 	// this constructor takes the same argument as in lab1, e.g. [1,2,0,3]
@@ -159,15 +159,10 @@ public class Polynomial {
 			for (int i = 0; i < coefficient.length; i++) {
 				if (i > 0 && coefficient[i] > 0)
 					output.append("+");
-				String coefStr;
-				if (coefficient[i] % 1 == 0)
-					coefStr = Integer.toString((int) coefficient[i]); // clean integer coefficient
-				else
-					coefStr = Double.toString(coefficient[i]);
 				if (exponent[i] == 0) {
-					output.append(coefStr);
+					output.append(Double.toString(coefficient[i]));
 				} else {
-					output.append(coefStr);
+					output.append(Double.toString(coefficient[i]));
 					output.append("x");
 					output.append(Integer.toString(exponent[i]));
 				}
